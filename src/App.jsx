@@ -1,12 +1,12 @@
 import { useState } from "react";
 
 import Intro from "./components/Intro/Intro";
-import Navbar from "./components/Navbar/Navbar";
+import Navbar from "./components/navbar/Navbar";
 import Hero from "./components/Hero/Hero";
 import About from "./components/About/About";
-import Skills from "./components/Skills/Skills";
+import Skills from "./components/Skills/skills";
 import Projects from "./components/Projects/Projects";
-import Contact from "./components/Contact/Contact";
+import Contact from "./components/contact/contact";
 import Footer from "./components/footer/Footer";
 
 function App() {
