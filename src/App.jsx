@@ -4,8 +4,8 @@ import Intro from "./components/Intro/Intro";
 import Navbar from "./components/navbar/Navbar";
 import Hero from "./components/Hero/Hero";
 import About from "./components/About/About";
-import Skills from "./components/Skills/skills";
-import Projects from "./components/Projects/Projects";
+import Skills from "./components/Skills/Skills";
+import Projects from "./components/projects/projects";s
 import Contact from "./components/contact/contact";
 import Footer from "./components/footer/Footer";
 
