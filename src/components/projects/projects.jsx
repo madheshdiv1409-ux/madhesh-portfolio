@@ -1,4 +1,4 @@
-import "./Projects.css";
+import "./projects.css";
 import { motion } from "framer-motion";
 import { PROJECTS } from "../../constants/data";
 

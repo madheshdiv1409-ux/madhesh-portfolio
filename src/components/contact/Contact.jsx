@@ -1,4 +1,4 @@
-import "./Contact.css";
+import "./contact.css";
 import { motion } from "framer-motion";
 
 const Contact = () => {
