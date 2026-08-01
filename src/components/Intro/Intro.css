@@ -1,0 +1,200 @@
+.intro{
+
+    position:fixed;
+
+    inset:0;
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    background:#050816;
+
+    z-index:99999;
+
+    overflow:hidden;
+
+}
+
+
+.intro-content{
+
+    text-align:center;
+
+}
+
+
+.intro h1{
+
+    font-family:"Space Grotesk",sans-serif;
+
+    font-size:clamp(3rem,8vw,6rem);
+
+    font-weight:700;
+
+    letter-spacing:-4px;
+
+    color:white;
+
+    opacity:0;
+
+    animation:introTitle 1s ease forwards;
+
+}
+
+
+.intro h2{
+
+    margin-top:20px;
+
+    font-family:Inter,sans-serif;
+
+    font-size:1.2rem;
+
+    font-weight:400;
+
+    letter-spacing:4px;
+
+    text-transform:uppercase;
+
+    color:#38BDF8;
+
+    opacity:0;
+
+    animation:introSubtitle 1s ease forwards;
+
+    animation-delay:.5s;
+
+}
+.loader{
+
+    margin-top:50px;
+
+    display:flex;
+
+    justify-content:center;
+
+    gap:10px;
+
+}
+
+
+.loader span{
+
+    width:10px;
+
+    height:10px;
+
+    border-radius:50%;
+
+    background:#38BDF8;
+
+    animation:pulse 1.2s infinite;
+
+}
+
+
+.loader span:nth-child(2){
+
+    animation-delay:.2s;
+
+}
+
+
+.loader span:nth-child(3){
+
+    animation-delay:.4s;
+
+}
+@keyframes introTitle{
+
+    from{
+
+        opacity:0;
+
+        transform:translateY(40px);
+
+    }
+
+    to{
+
+        opacity:1;
+
+        transform:translateY(0);
+
+    }
+
+}
+
+
+@keyframes introSubtitle{
+
+    from{
+
+        opacity:0;
+
+        transform:translateY(20px);
+
+    }
+
+    to{
+
+        opacity:1;
+
+        transform:translateY(0);
+
+    }
+
+}
+
+
+@keyframes pulse{
+
+    0%{
+
+        transform:scale(.5);
+
+        opacity:.4;
+
+    }
+
+    50%{
+
+        transform:scale(1);
+
+        opacity:1;
+
+    }
+
+    100%{
+
+        transform:scale(.5);
+
+        opacity:.4;
+
+    }
+
+}
+/* EXIT ANIMATION */
+
+.intro{
+
+    transition:
+    opacity .8s ease,
+    filter .8s ease,
+    transform .8s ease;
+
+}
+
+
+.intro.closing{
+
+    opacity:0;
+
+    filter:blur(20px);
+
+    transform:scale(1.08);
+
+}

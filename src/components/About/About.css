@@ -1,0 +1,421 @@
+/* ===========================
+   ABOUT SECTION
+=========================== */
+
+.about{
+    position:relative;
+    overflow:hidden;
+    padding:140px 8%;
+    background:#080B12;
+}
+
+.about-container{
+    max-width:1300px;
+    margin:auto;
+    position:relative;
+    z-index:2;
+}
+
+/* ===========================
+   BACKGROUND GLOW
+=========================== */
+
+.about-glow{
+    position:absolute;
+    width:500px;
+    height:500px;
+    background:#2563eb;
+    filter:blur(220px);
+    opacity:.12;
+    top:-120px;
+    right:-120px;
+    border-radius:50%;
+    pointer-events:none;
+}
+
+/* ===========================
+   HEADER
+=========================== */
+
+.about-header{
+
+    max-width:850px;
+    margin:auto;
+    text-align:center;
+    margin-bottom:100px;
+
+}
+
+.about-tag{
+
+    display:inline-block;
+    padding:8px 18px;
+    border-radius:999px;
+    border:1px solid rgba(255,255,255,.08);
+    background:rgba(255,255,255,.04);
+
+    color:#60A5FA;
+
+    letter-spacing:2px;
+
+    font-size:.8rem;
+
+    margin-bottom:25px;
+
+}
+
+.about-header h2{
+
+    font-size:clamp(3rem,6vw,5rem);
+
+    line-height:1.1;
+
+    color:white;
+
+    margin-bottom:35px;
+
+}
+
+.about-header p{
+
+    color:#94A3B8;
+
+    font-size:1.1rem;
+
+    line-height:2;
+
+    max-width:760px;
+
+    margin:auto;
+
+}
+
+.about-header strong{
+
+    color:white;
+
+}
+
+/* ===========================
+   TIMELINE
+=========================== */
+
+.timeline{
+
+    margin-top:80px;
+
+    margin-bottom:100px;
+
+}
+
+.timeline h3{
+
+    text-align:center;
+
+    color:white;
+
+    margin-bottom:50px;
+
+    font-size:2rem;
+
+    letter-spacing:2px;
+
+}
+
+.timeline-row{
+
+    display:grid;
+
+    grid-template-columns:repeat(4,1fr);
+
+    gap:25px;
+
+}
+
+.timeline-card{
+
+    position:relative;
+
+    background:rgba(255,255,255,.04);
+
+    border:1px solid rgba(255,255,255,.08);
+
+    backdrop-filter:blur(20px);
+
+    border-radius:22px;
+
+    padding:28px;
+
+    transition:.4s;
+
+}
+
+.timeline-card:hover{
+
+    transform:translateY(-10px);
+
+    border-color:#2563eb;
+
+}
+
+.timeline-card span{
+
+    color:#60A5FA;
+
+    font-size:1.4rem;
+
+    font-weight:700;
+
+}
+
+.timeline-card h4{
+
+    color:white;
+
+    margin:16px 0;
+
+}
+
+.timeline-card p{
+
+    color:#94A3B8;
+
+    line-height:1.8;
+
+}
+/* ===========================
+   ABOUT CARDS
+=========================== */
+
+.about-grid{
+
+    display:grid;
+
+    grid-template-columns:2fr 1fr 1fr;
+
+    gap:24px;
+
+    margin-bottom:100px;
+
+}
+
+.about-card{
+
+    background:rgba(255,255,255,.04);
+
+    border:1px solid rgba(255,255,255,.08);
+
+    backdrop-filter:blur(20px);
+
+    border-radius:24px;
+
+    padding:32px;
+
+    transition:.4s ease;
+
+    position:relative;
+
+    overflow:hidden;
+
+}
+
+.about-card::before{
+
+    content:"";
+
+    position:absolute;
+
+    inset:0;
+
+    background:linear-gradient(
+        135deg,
+        rgba(37,99,235,.18),
+        transparent
+    );
+
+    opacity:0;
+
+    transition:.4s;
+
+}
+
+.about-card:hover::before{
+
+    opacity:1;
+
+}
+
+.about-card:hover{
+
+    transform:translateY(-10px);
+
+    border-color:#3B82F6;
+
+    box-shadow:0 20px 50px rgba(37,99,235,.15);
+
+}
+
+.about-card.large{
+
+    grid-column:span 2;
+
+}
+
+.about-card.full{
+
+    grid-column:span 3;
+
+}
+
+.about-card h3{
+
+    color:#fff;
+
+    font-size:1.25rem;
+
+    margin-bottom:18px;
+
+}
+
+.about-card p{
+
+    color:#60A5FA;
+
+    font-size:1.15rem;
+
+    font-weight:700;
+
+    margin-bottom:10px;
+
+}
+
+.about-card span{
+
+    color:#94A3B8;
+
+    line-height:1.8;
+
+}
+
+/* ===========================
+   STATS
+=========================== */
+
+.about-stats{
+
+    display:grid;
+
+    grid-template-columns:repeat(4,1fr);
+
+    gap:25px;
+
+}
+
+.stat{
+
+    background:rgba(255,255,255,.03);
+
+    border:1px solid rgba(255,255,255,.08);
+
+    border-radius:24px;
+
+    padding:40px 20px;
+
+    text-align:center;
+
+    transition:.35s;
+
+}
+
+.stat:hover{
+
+    transform:translateY(-8px);
+
+    border-color:#2563eb;
+
+}
+
+.stat h2{
+
+    font-size:3rem;
+
+    color:white;
+
+    margin-bottom:12px;
+
+}
+
+.stat p{
+
+    color:#94A3B8;
+
+    letter-spacing:1px;
+
+}
+
+/* ===========================
+   RESPONSIVE
+=========================== */
+
+@media(max-width:1100px){
+
+    .timeline-row{
+
+        grid-template-columns:repeat(2,1fr);
+
+    }
+
+    .about-grid{
+
+        grid-template-columns:1fr;
+
+    }
+
+    .about-card.large,
+    .about-card.full{
+
+        grid-column:auto;
+
+    }
+
+    .about-stats{
+
+        grid-template-columns:repeat(2,1fr);
+
+    }
+
+}
+
+@media(max-width:768px){
+
+    .about{
+
+        padding:100px 6%;
+
+    }
+
+    .about-header{
+
+        text-align:left;
+
+    }
+
+    .about-header h2{
+
+        font-size:2.6rem;
+
+    }
+
+    .timeline-row{
+
+        grid-template-columns:1fr;
+
+    }
+
+    .about-stats{
+
+        grid-template-columns:1fr;
+
+    }
+
+}

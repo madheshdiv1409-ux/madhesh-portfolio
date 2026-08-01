@@ -1,0 +1,50 @@
+@import "tailwindcss";
+
+:root{
+  --bg:#06070A;
+  --surface:rgba(255,255,255,.05);
+  --border:rgba(255,255,255,.08);
+  --text:#F8FAFC;
+  --muted:#94A3B8;
+  --accent:#60A5FA;
+}
+
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+}
+
+html{
+  scroll-behavior:smooth;
+}
+
+body{
+  background:var(--bg);
+  color:var(--text);
+  font-family:"Inter",sans-serif;
+  overflow-x:hidden;
+}
+
+h1,h2,h3,h4{
+  font-family:"Space Grotesk",sans-serif;
+}
+
+button{
+  cursor:pointer;
+}
+
+::selection{
+  background:#60A5FA;
+  color:white;
+}
+html{
+    scroll-behavior:auto;
+}
+
+body{
+    overflow-x:hidden;
+}
+html{
+    scroll-behavior:smooth;
+}
