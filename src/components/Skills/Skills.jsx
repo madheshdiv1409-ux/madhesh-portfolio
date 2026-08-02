@@ -107,33 +107,30 @@ const Skills = () => {
 
             <div className="progress">
 
-              <motion.div
-
-                className="progress-fill"
-
-                initial={{
-                  width:0
-                }}
-
-                whileInView={{
-                  width:`${skill.level}%`
-                }}
-
-                transition={{
-                  duration:1
-                }}
-
-                viewport={{
-                  once:true
-                }}
-
-              />
+             <motion.div
+  className="progress-fill"
+  initial={{
+    scaleX: 0,
+  }}
+  whileInView={{
+    scaleX: skill.level / 100,
+  }}
+  transition={{
+    duration: 1.2,
+    ease: "easeOut",
+  }}
+  viewport={{
+    once: true,
+  }}
+  style={{
+    transformOrigin: "left",
+    width: "100%",
+  }}
+/>
 
             </div>
 
-            <span className="percent">
-              {skill.level}%
-            </span>
+            
 
           </motion.div>
 

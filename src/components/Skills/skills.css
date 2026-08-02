@@ -262,21 +262,8 @@
 
 }
 
-.percent{
 
-    display:flex;
 
-    justify-content:flex-end;
-
-    margin-top:10px;
-
-    color:#60A5FA;
-
-    font-weight:700;
-
-    font-size:.9rem;
-
-}
 
 /* ===========================
    RESPONSIVE
@@ -310,6 +297,17 @@
 
         text-align:left;
 
+    }
+
+}
+@keyframes loadingBar{
+
+    from{
+        transform:scaleX(0);
+    }
+
+    to{
+        transform:scaleX(1);
     }
 
 }
