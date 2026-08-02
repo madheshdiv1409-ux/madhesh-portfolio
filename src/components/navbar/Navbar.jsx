@@ -10,12 +10,16 @@ const Navbar = () => {
 
         <NavLinks />
 
-        <a
+<a
   href="/resume.pdf"
   download
-  className="rounded-xl bg-white px-5 py-2 text-sm font-semibold text-black transition hover:scale-105"
+  className="group relative overflow-hidden rounded-xl border border-cyan-400/30 px-5 py-2 text-sm font-semibold text-cyan-300 transition-all duration-300 hover:text-black"
 >
-  Resume
+  <span className="absolute inset-0 -translate-x-full bg-cyan-400 transition-transform duration-300 group-hover:translate-x-0"></span>
+
+  <span className="relative z-10">
+    Resume ↓
+  </span>
 </a>
 
       </nav>
