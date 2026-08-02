@@ -12,14 +12,21 @@ const Navbar = () => {
 
 <div className="flex items-center gap-4">
     {/* Resume Button */}
-    <a
-        href="/resume.pdf"
-        target="_blank"
-        rel="noopener noreferrer"
-        className="rounded-xl border border-cyan-400/40 bg-cyan-500/10 px-5 py-2 text-sm font-semibold text-cyan-300 transition-all duration-300 hover:scale-105 hover:bg-cyan-400 hover:text-black"
-    >
-        Resume
-    </a>
+   <a
+  href="/resume.pdf"
+  target="_blank"
+  rel="noopener noreferrer"
+  className="group relative overflow-hidden rounded-full border border-cyan-400/40 px-6 py-3 font-semibold tracking-wide text-cyan-300 transition-all duration-500 hover:scale-105 hover:border-cyan-300"
+>
+  <span className="absolute inset-0 -translate-x-full bg-gradient-to-r from-cyan-500 via-blue-500 to-cyan-400 transition-transform duration-500 group-hover:translate-x-0"></span>
+
+  <span className="relative z-10 flex items-center gap-2 group-hover:text-white">
+    Resume
+    <span className="transition-transform duration-300 group-hover:translate-x-1">
+      ↗
+    </span>
+  </span>
+</a>
 
     
 </div>
