@@ -1,85 +1,130 @@
 .messages-page{
-    padding:40px;
-    background:#050816;
-    min-height:100vh;
-    color:white;
+
+padding:40px;
+
+min-height:100vh;
+
+background:#050816;
+
+color:white;
+
 }
 
-.messages-header{
-    display:flex;
-    justify-content:space-between;
-    align-items:center;
-    margin-bottom:35px;
+
+.messages-grid{
+
+display:grid;
+
+grid-template-columns:repeat(3,1fr);
+
+gap:25px;
+
+margin-top:30px;
+
 }
 
-.messages-header h1{
-    font-size:2.3rem;
-}
 
-.search-box{
-    padding:14px 18px;
-    width:300px;
-    border:none;
-    border-radius:14px;
-    background:#111827;
-    color:white;
-    outline:none;
-}
-
-.message-list{
-    display:flex;
-    flex-direction:column;
-    gap:20px;
-}
 
 .message-card{
-    background:#111827;
-    border:1px solid rgba(255,255,255,.08);
-    border-radius:20px;
-    padding:25px;
-    transition:.35s;
+
+background:#111827;
+
+padding:25px;
+
+border-radius:20px;
+
+border:1px solid rgba(255,255,255,.08);
+
+transition:.3s;
+
 }
+
+
 
 .message-card:hover{
-    transform:translateY(-5px);
-    border-color:#3B82F6;
+
+transform:translateY(-6px);
+
+border-color:#2563EB;
+
 }
 
-.message-top{
-    display:flex;
-    justify-content:space-between;
-    margin-bottom:12px;
+
+
+.message-header{
+
+display:flex;
+
+justify-content:space-between;
+
+align-items:center;
+
 }
 
-.message-name{
-    font-size:1.2rem;
-    font-weight:700;
+
+
+.message-card p{
+
+color:#94A3B8;
+
 }
 
-.message-email{
-    color:#60A5FA;
+
+
+.read,
+.unread{
+
+padding:6px 12px;
+
+border-radius:20px;
+
+font-size:12px;
+
 }
 
-.message-subject{
-    color:white;
-    font-weight:600;
-    margin:12px 0;
+
+
+.read{
+
+background:#16a34a;
+
 }
 
-.message-body{
-    color:#94A3B8;
+
+
+.unread{
+
+background:#dc2626;
+
 }
 
-.delete-btn{
-    margin-top:20px;
-    background:#EF4444;
-    color:white;
-    border:none;
-    padding:10px 20px;
-    border-radius:10px;
-    cursor:pointer;
+
+
+.message-card button{
+
+margin-top:20px;
+
+padding:10px 20px;
+
+border:none;
+
+border-radius:10px;
+
+background:#dc2626;
+
+color:white;
+
+cursor:pointer;
+
 }
 
-.delete-btn:hover{
-    background:#DC2626;
+
+@media(max-width:900px){
+
+.messages-grid{
+
+grid-template-columns:1fr;
+
+}
+
 }

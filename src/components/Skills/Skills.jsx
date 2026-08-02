@@ -1,8 +1,23 @@
 import "./skills.css";
 import { motion } from "framer-motion";
-import { SKILLS } from "../../constants/data";
+import { useEffect, useState } from "react";
+import API from "../../utils/api";
 
 const Skills = () => {
+
+  const [skills, setSkills] = useState([]);
+
+  useEffect(() => {
+
+    API.get("/skills/")
+      .then((response) => {
+        setSkills(response.data);
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+
+  }, []);
 
   return (
 
@@ -44,7 +59,7 @@ const Skills = () => {
 
       <div className="skills-grid">
 
-        {SKILLS.map((skill,index)=>(
+        {skills.map((skill,index)=>(
 
          <motion.div
 

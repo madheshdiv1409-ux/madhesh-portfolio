@@ -1,8 +1,23 @@
 import "./projects.css";
 import { motion } from "framer-motion";
-import { PROJECTS } from "../../constants/data";
+import { useEffect, useState } from "react";
+import API from "../../utils/api";
 
 const Projects = () => {
+
+  const [projects, setProjects] = useState([]);
+
+  useEffect(() => {
+
+    API.get("/projects/")
+      .then((response) => {
+        setProjects(response.data);
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+
+  }, []);
 
   return (
 
@@ -51,7 +66,7 @@ const Projects = () => {
 
       <div className="projects-wrapper">
 
-        {PROJECTS.map((project, index) => (
+        {projects.map((project, index) => (
 
           <motion.div
 
@@ -82,9 +97,9 @@ const Projects = () => {
 
             <div className="project-left">
 
-              <span className="project-number">
-                0{project.id}
-              </span>
+             <span className="project-number">
+  0{index + 1}
+</span>
 
               <span className="project-subtitle">
                 {project.subtitle}
@@ -100,7 +115,7 @@ const Projects = () => {
 
               <div className="tech-stack">
 
-                {project.tech.map((item) => (
+                {project.tech_stack.split(", ").map((item) => (
 
                   <span key={item}>
                     {item}
@@ -113,7 +128,7 @@ const Projects = () => {
               <div className="project-buttons">
 
                 <a
-                  href={project.live}
+                  href={project.live_link}
                   target="_blank"
                   rel="noopener noreferrer"
                 >
@@ -121,7 +136,7 @@ const Projects = () => {
                 </a>
 
                 <a
-                  href={project.github}
+                  href={project.github_link}
                   target="_blank"
                   rel="noopener noreferrer"
                 >
@@ -134,11 +149,16 @@ const Projects = () => {
 
             <div className="project-right">
 
-              <img
-                src={project.image}
-                alt={project.title}
-              />
-
+ <img
+  src={
+    project.title === "Dhanush Universe"
+      ? "/images/projects/dhanush-universe.png"
+      : project.title === "Food Ordering Platform"
+      ? "/images/projects/food.png"
+      : "/images/projects/delivery.png"
+  }
+  alt={project.title}
+/>
             </div>
 
           </motion.div>

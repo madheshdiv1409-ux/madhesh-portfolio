@@ -1,108 +1,143 @@
-import "./../styles/messages.css";
 import { useEffect, useState } from "react";
 import axios from "axios";
+import "../styles/messages.css";
+
 
 const Messages = () => {
 
-  const [messages, setMessages] = useState([]);
-  const [search, setSearch] = useState("");
+    const [messages, setMessages] = useState([]);
 
-  const fetchMessages = () => {
-    axios
-      .get("http://127.0.0.1:8000/api/messages/")
-      .then((res) => setMessages(res.data))
-      .catch((err) => console.log(err));
-  };
 
-  useEffect(() => {
-    fetchMessages();
-  }, []);
+    const fetchMessages = () => {
 
-  const deleteMessage = async (id) => {
+        axios
+        .get("http://127.0.0.1:8000/api/messages/")
+        .then((res)=>{
 
-    await axios.delete(`http://127.0.0.1:8000/api/messages/${id}/`);
+            setMessages(res.data);
 
-    fetchMessages();
+        })
+        .catch((err)=>console.log(err));
 
-  };
+    };
 
-  return (
 
-<div className="messages-page">
+    useEffect(()=>{
 
-<div className="messages-header">
+        fetchMessages();
 
-<h1>📬 Inbox</h1>
+    },[]);
 
-<input
-className="search-box"
-placeholder="Search..."
-value={search}
-onChange={(e)=>setSearch(e.target.value)}
-/>
 
-</div>
 
-<div className="message-list">
+    const deleteMessage = async(id)=>{
 
-{messages
-.filter((msg)=>
+        const confirmDelete = window.confirm(
+            "Delete this message?"
+        );
 
-msg.name.toLowerCase().includes(search.toLowerCase()) ||
 
-msg.email.toLowerCase().includes(search.toLowerCase()) ||
+        if(confirmDelete){
 
-msg.subject.toLowerCase().includes(search.toLowerCase())
+            await axios.delete(
+                `http://127.0.0.1:8000/api/messages/${id}/`
+            );
 
-)
 
-.map((msg)=>(
+            fetchMessages();
 
-<div className="message-card" key={msg.id}>
+        }
 
-<div className="message-top">
+    };
 
-<div>
 
-<div className="message-name">{msg.name}</div>
 
-<div className="message-email">{msg.email}</div>
+    return (
 
-</div>
+        <div className="messages-page">
 
-</div>
 
-<div className="message-subject">
+            <h1>📩 Messages</h1>
 
-📌 {msg.subject}
 
-</div>
+            <div className="messages-grid">
 
-<div className="message-body">
 
-💬 {msg.message}
+            {
+                messages.map((msg)=>(
 
-</div>
 
-<button
-className="delete-btn"
-onClick={()=>deleteMessage(msg.id)}
->
+                    <div 
+                    className="message-card"
+                    key={msg.id}
+                    >
 
-Delete
 
-</button>
+                        <div className="message-header">
 
-</div>
+                            <h3>
+                                👤 {msg.name}
+                            </h3>
 
-))}
 
-</div>
+                            {
+                                msg.is_read ?
 
-</div>
+                                <span className="read">
+                                    Read
+                                </span>
 
-  );
+                                :
+
+                                <span className="unread">
+                                    New
+                                </span>
+
+                            }
+
+
+                        </div>
+
+
+
+                        <p>
+                            📧 {msg.email}
+                        </p>
+
+
+                        <h4>
+                            {msg.subject}
+                        </h4>
+
+
+                        <p>
+                            {msg.message}
+                        </p>
+
+
+
+                        <button
+                        onClick={()=>deleteMessage(msg.id)}
+                        >
+                            Delete
+                        </button>
+
+
+                    </div>
+
+
+                ))
+            }
+
+
+            </div>
+
+
+        </div>
+
+    );
 
 };
+
 
 export default Messages;

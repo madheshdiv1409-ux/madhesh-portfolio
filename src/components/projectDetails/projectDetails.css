@@ -1,0 +1,193 @@
+.project-details {
+    min-height: 100vh;
+    padding: 120px 8%;
+    background: #050816;
+    color: white;
+}
+
+
+.details-container {
+    max-width: 1200px;
+    margin: auto;
+
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+}
+
+
+/* Back Button */
+
+.back-btn {
+
+    width: fit-content;
+
+    text-decoration: none;
+    color: #ffffff;
+
+    padding: 12px 24px;
+
+    border: 1px solid rgba(255,255,255,0.2);
+    border-radius: 30px;
+
+    transition: .3s;
+}
+
+
+.back-btn:hover {
+
+    background: white;
+    color: black;
+
+}
+
+
+
+/* Project Image */
+
+.details-image {
+
+    width:100%;
+    max-height:550px;
+
+    object-fit:cover;
+
+    border-radius:25px;
+
+    box-shadow:
+    0 20px 60px rgba(0,0,0,.5);
+}
+
+
+
+/* Content */
+
+.details-content {
+
+    max-width:900px;
+
+}
+
+
+.details-content span {
+
+    color:#8b5cf6;
+
+    font-size:14px;
+
+    letter-spacing:3px;
+
+}
+
+
+
+.details-content h1 {
+
+    font-size:60px;
+
+    margin:20px 0;
+
+}
+
+
+
+.details-content p {
+
+    font-size:18px;
+
+    line-height:1.8;
+
+    color:#cbd5e1;
+
+}
+
+
+
+/* Tech */
+
+.details-tech {
+
+    display:flex;
+
+    flex-wrap:wrap;
+
+    gap:15px;
+
+    margin:35px 0;
+
+}
+
+
+.details-tech span {
+
+    padding:10px 18px;
+
+    background:
+    rgba(255,255,255,.08);
+
+    border-radius:20px;
+
+    color:white;
+
+}
+
+
+
+/* Buttons */
+
+.details-buttons {
+
+    display:flex;
+
+    gap:20px;
+
+}
+
+
+.details-buttons a {
+
+    text-decoration:none;
+
+    padding:14px 30px;
+
+    border-radius:30px;
+
+    background:#8b5cf6;
+
+    color:white;
+
+    transition:.3s;
+
+}
+
+
+
+.details-buttons a:hover {
+
+    transform:translateY(-5px);
+
+    background:#a78bfa;
+
+}
+
+
+
+/* Not Found */
+
+.not-found {
+
+    min-height:100vh;
+
+    display:flex;
+
+    flex-direction:column;
+
+    justify-content:center;
+
+    align-items:center;
+
+    background:#050816;
+
+    color:white;
+
+}

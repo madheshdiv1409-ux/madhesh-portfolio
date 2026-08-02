@@ -1,41 +1,121 @@
 import { useState } from "react";
 
+import {
+Routes,
+Route
+} from "react-router-dom";
+
+
+import ProjectDetails from "./components/projectDetails/ProjectDetails";
+
+
 import Intro from "./components/Intro/Intro";
+
 import Navbar from "./components/navbar/Navbar";
+
 import Hero from "./components/Hero/Hero";
+
 import About from "./components/About/About";
+
 import Skills from "./components/Skills/Skills";
+
 import Projects from "./components/projects/projects";
+
 import Contact from "./components/contact/Contact";
+
 import Footer from "./components/footer/Footer";
 
-function App() {
 
-  const [loading, setLoading] = useState(true);
 
-  return (
-    <>
-      {loading && (
-        <Intro onFinish={() => setLoading(false)} />
-      )}
 
-      {!loading && (
-        <>
-          <Navbar />
+function App(){
 
-          <main>
-            <Hero />
-            <About />
-            <Skills />
-            <Projects />
-            <Contact />
-          </main>
 
-          <Footer />
-        </>
-      )}
-    </>
-  );
+const [loading,setLoading]=useState(true);
+
+
+
+return(
+
+<>
+
+
+{
+loading &&
+
+<Intro
+onFinish={()=>setLoading(false)}
+/>
+
 }
+
+
+
+{
+!loading &&
+
+
+<Routes>
+
+
+<Route
+
+path="/"
+
+element={
+
+<>
+
+<Navbar/>
+
+
+<main>
+
+<Hero/>
+
+<About/>
+
+<Skills/>
+
+<Projects/>
+
+<Contact/>
+
+</main>
+
+
+<Footer/>
+
+</>
+
+}
+
+/>
+
+
+
+<Route
+
+path="/project/:id"
+
+element={<ProjectDetails/>}
+
+/>
+
+
+
+</Routes>
+
+}
+
+
+</>
+
+);
+
+
+}
+
+
 
 export default App;

@@ -2,6 +2,7 @@ import "./contact.css";
 import { motion } from "framer-motion";
 import { useState } from "react";
 import axios from "axios";
+import toast from "react-hot-toast";
 
 const Contact = () => {
   const [formData, setFormData] = useState({
@@ -10,6 +11,7 @@ const Contact = () => {
     subject: "",
     message: "",
   });
+  const [loading, setLoading] = useState(false);
 
   const handleChange = (e) => {
     setFormData({
@@ -18,27 +20,28 @@ const Contact = () => {
     });
   };
 const handleSubmit = async () => {
-  console.log("BUTTON CLICKED");
+
+  setLoading(true);
 
   try {
+
     await axios.post(
       "http://127.0.0.1:8000/api/messages/",
       formData
     );
 
-    alert("Message sent successfully 🚀");
+    toast.success("Message sent successfully 🚀");
 
-    setFormData({
-      name: "",
-      email: "",
-      subject: "",
-      message: "",
-    });
+  } catch(error) {
 
-  } catch (error) {
-    console.error(error);
-    alert("Failed to send message ❌");
+    toast.error("Failed to send message ❌");
+
+  } finally {
+
+    setLoading(false);
+
   }
+
 };
   return (
     <section className="contact" id="contact">
@@ -57,7 +60,7 @@ const handleSubmit = async () => {
           Let's create something meaningful together.
         </p>
 
-        <form>
+        <form onSubmit={handleSubmit}>
           <div className="input-row">
             <input
               type="text"
@@ -93,11 +96,12 @@ const handleSubmit = async () => {
           />
 
         <button
-          type="button"
-          onClick={handleSubmit}
-          >
-         Send Message
-        </button>
+  type="button"
+  onClick={handleSubmit}
+  disabled={loading}
+>
+  {loading ? "Sending..." : "Send Message"}
+</button>
         </form>
 
         <div className="contact-info">
