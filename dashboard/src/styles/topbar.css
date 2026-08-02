@@ -1,0 +1,47 @@
+.topbar{
+    height:80px;
+    background:#0F172A;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    padding:0 35px;
+    border-bottom:1px solid rgba(255,255,255,.08);
+}
+
+.topbar h2{
+    color:white;
+}
+
+.topbar-right{
+    display:flex;
+    align-items:center;
+    gap:25px;
+}
+
+.topbar img{
+    width:45px;
+    height:45px;
+    border-radius:50%;
+    cursor:pointer;
+}
+
+.notification{
+    position:relative;
+    font-size:1.5rem;
+    cursor:pointer;
+}
+
+.notification span{
+    position:absolute;
+    top:-8px;
+    right:-10px;
+    background:#EF4444;
+    color:white;
+    font-size:.7rem;
+    width:18px;
+    height:18px;
+    border-radius:50%;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+}
