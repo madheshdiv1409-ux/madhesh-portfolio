@@ -19,20 +19,30 @@ const Contact = () => {
       [e.target.name]: e.target.value,
     });
   };
-const handleSubmit = async () => {
+const handleSubmit = async (e) => {
+
+  e.preventDefault();
 
   setLoading(true);
 
   try {
 
-    await axios.post(
-      "http://127.0.0.1:8000/api/messages/",
-      formData
-    );
-
+  await axios.post(
+ "https://madhesh-portfolio-backend.onrender.com/api/messages/",
+ formData
+);
     toast.success("Message sent successfully 🚀");
 
-  } catch(error) {
+    setFormData({
+      name: "",
+      email: "",
+      subject: "",
+      message: "",
+    });
+
+  } catch (error) {
+
+    console.log(error);
 
     toast.error("Failed to send message ❌");
 
@@ -43,6 +53,8 @@ const handleSubmit = async () => {
   }
 
 };
+
+
   return (
     <section className="contact" id="contact">
       <motion.div
@@ -95,9 +107,8 @@ const handleSubmit = async () => {
             onChange={handleChange}
           />
 
-        <button
-  type="button"
-  onClick={handleSubmit}
+     <button
+  type="submit"
   disabled={loading}
 >
   {loading ? "Sending..." : "Send Message"}
