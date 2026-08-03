@@ -128,3 +128,57 @@ grid-template-columns:1fr;
 }
 
 }
+.read-btn{
+
+margin-top:20px;
+margin-right:10px;
+
+padding:10px 20px;
+
+border:none;
+border-radius:10px;
+
+background:#16a34a;
+
+color:white;
+
+cursor:pointer;
+
+}
+
+
+.read-btn:hover{
+
+background:#15803d;
+
+}
+.message-search{
+
+width:100%;
+
+max-width:500px;
+
+padding:14px 20px;
+
+margin-top:20px;
+
+border-radius:12px;
+
+border:1px solid rgba(255,255,255,.1);
+
+background:#111827;
+
+color:white;
+
+outline:none;
+
+font-size:16px;
+
+}
+
+
+.message-search::placeholder{
+
+color:#94A3B8;
+
+}

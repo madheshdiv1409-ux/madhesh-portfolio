@@ -6,6 +6,7 @@ import "../styles/messages.css";
 const Messages = () => {
 
     const [messages, setMessages] = useState([]);
+    const [search, setSearch] = useState("");
 
 
     const fetchMessages = () => {
@@ -49,6 +50,36 @@ const Messages = () => {
         }
 
     };
+    const markAsRead = async(id)=>{
+
+    try{
+
+        await axios.patch(
+            `http://127.0.0.1:8000/api/messages/${id}/`,
+            {
+                is_read:true
+            }
+        );
+
+        fetchMessages();
+
+    }
+    catch(err){
+
+        console.log(err);
+
+    }
+
+};
+const filteredMessages = messages.filter((msg)=>{
+
+    return (
+        msg.name.toLowerCase().includes(search.toLowerCase()) ||
+        msg.email.toLowerCase().includes(search.toLowerCase()) ||
+        msg.subject.toLowerCase().includes(search.toLowerCase())
+    );
+
+});
 
 
 
@@ -57,14 +88,22 @@ const Messages = () => {
         <div className="messages-page">
 
 
+            
             <h1>📩 Messages</h1>
+            <input
+type="text"
+className="message-search"
+placeholder=" Search messages..."
+value={search}
+onChange={(e)=>setSearch(e.target.value)}
+/>
 
 
             <div className="messages-grid">
 
 
             {
-                messages.map((msg)=>(
+                filteredMessages.map((msg)=>(
 
 
                     <div 
@@ -116,11 +155,27 @@ const Messages = () => {
 
 
 
-                        <button
-                        onClick={()=>deleteMessage(msg.id)}
-                        >
-                            Delete
-                        </button>
+                       
+ 
+{
+!msg.is_read && (
+
+<button
+onClick={()=>markAsRead(msg.id)}
+className="read-btn"
+>
+Mark as Read
+</button>
+
+)
+}
+
+
+<button
+onClick={()=>deleteMessage(msg.id)}
+>
+Delete
+</button>
 
 
                     </div>
