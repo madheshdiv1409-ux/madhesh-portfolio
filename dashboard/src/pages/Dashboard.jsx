@@ -17,12 +17,21 @@ useEffect(() => {
   const fetchData = async () => {
 
     try {
+const messages = await axios.get(
+"https://madhesh-portfolio-backend.onrender.com/api/messages/"
+);
 
-      const messages = await axios.get("http://127.0.0.1:8000/api/messages/");
-      const projects = await axios.get("http://127.0.0.1:8000/api/projects/");
-      const skills = await axios.get("http://127.0.0.1:8000/api/skills/");
-      const about = await axios.get("http://127.0.0.1:8000/api/about/");
+const projects = await axios.get(
+"https://madhesh-portfolio-backend.onrender.com/api/projects/"
+);
 
+const skills = await axios.get(
+"https://madhesh-portfolio-backend.onrender.com/api/skills/"
+);
+
+const about = await axios.get(
+"https://madhesh-portfolio-backend.onrender.com/api/about/"
+);
       setStats({
         messages: messages.data.length,
         projects: projects.data.length,

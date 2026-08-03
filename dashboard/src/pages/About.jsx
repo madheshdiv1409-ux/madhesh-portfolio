@@ -11,7 +11,7 @@ const About = () => {
     useEffect(() => {
 
         axios
-        .get("http://127.0.0.1:8000/api/about/")
+        .get("https://madhesh-portfolio-backend.onrender.com")
         .then((res)=>{
 
             if(res.data.length > 0){

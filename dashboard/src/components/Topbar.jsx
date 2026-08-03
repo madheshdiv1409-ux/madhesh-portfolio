@@ -9,7 +9,7 @@ const Topbar = () => {
   useEffect(() => {
 
     axios
-      .get("http://127.0.0.1:8000/api/messages/")
+      .get("https://madhesh-portfolio-backend.onrender.com")
       .then((res) => setCount(res.data.length))
       .catch((err) => console.log(err));
 

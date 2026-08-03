@@ -18,7 +18,7 @@ const [formData, setFormData] = useState({
    const fetchSkills = () => {
 
     axios
-    .get("http://127.0.0.1:8000/api/skills/")
+    .get("https://madhesh-portfolio-backend.onrender.com")
     .then((res)=>setSkills(res.data))
     .catch((err)=>console.log(err));
 
@@ -35,7 +35,7 @@ const handleSubmit = async()=>{
     try{
 
         await axios.post(
-            "http://127.0.0.1:8000/api/skills/",
+            "https://madhesh-portfolio-backend.onrender.com",
             formData
         );
 
@@ -76,7 +76,7 @@ const handleDelete = async (id) => {
     try{
 
         await axios.delete(
-            `http://127.0.0.1:8000/api/skills/${id}/`
+            `https://madhesh-portfolio-backend.onrender.com/api/skills/${id}/`
         );
 
 

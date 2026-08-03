@@ -12,7 +12,7 @@ const Messages = () => {
     const fetchMessages = () => {
 
         axios
-        .get("http://127.0.0.1:8000/api/messages/")
+        .get("https://madhesh-portfolio-backend.onrender.com")
         .then((res)=>{
 
             setMessages(res.data);
@@ -41,7 +41,7 @@ const Messages = () => {
         if(confirmDelete){
 
             await axios.delete(
-                `http://127.0.0.1:8000/api/messages/${id}/`
+                `https://madhesh-portfolio-backend.onrender.com/api/messages/${id}/`
             );
 
 
@@ -55,7 +55,7 @@ const Messages = () => {
     try{
 
         await axios.patch(
-            `http://127.0.0.1:8000/api/messages/${id}/`,
+            `https://madhesh-portfolio-backend.onrender.com/api/messages/${id}/`,
             {
                 is_read:true
             }
